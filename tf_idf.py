@@ -51,7 +51,7 @@ def genre_recommendations(i, k=5):
 
     """
     M= cosine_sim_df
-    items= movies[['Titulo_original','Fecha_estreno','Descripcion','Cartel_path','Genero_Pelicula']]
+    items= movies[['Id_Pelicula','Titulo_original','Fecha_estreno','Descripcion','Cartel_path','Genero_Pelicula']]
     ix = M.loc[:,i].to_numpy().argpartition(range(-1,-k,-1))
     closest = M.columns[ix[-1:-(k+2):-1]]
     closest = closest.drop(i, errors='ignore')
