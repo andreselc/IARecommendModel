@@ -34,7 +34,7 @@ cosine_sim_df = pd.DataFrame(cosine_sim, index=movies['Titulo_original'], column
 print('Shape:', cosine_sim_df.shape)
 cosine_sim_df.sample(5, axis=1).round(2)
 
-def genre_recommendations(i, k=5):
+def genre_recommendations(i, k=20):
     """
     Recommends movies based on a similarity dataframe
 
@@ -54,5 +54,7 @@ def genre_recommendations(i, k=5):
     items= movies[['Id_Pelicula','Titulo_original','Fecha_estreno','Descripcion','Cartel_path','Genero_Pelicula']]
     ix = M.loc[:,i].to_numpy().argpartition(range(-1,-k,-1))
     closest = M.columns[ix[-1:-(k+2):-1]]
-    closest = closest.drop(i, errors='ignore')
-    return pd.DataFrame(closest).merge(items).head(k)
+    closest = pd.DataFrame(closest)  
+    closest = closest.sample(k)  
+    closest = closest[closest != i]
+    return pd.DataFrame(closest).merge(items).head(5)
