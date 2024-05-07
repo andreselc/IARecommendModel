@@ -6,11 +6,9 @@ import seaborn as sns
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Definimos nuestro archivo
+# Definimos nuestros archivo
 
 movies_file = "Data_pelicula.csv"
-users_file = "users.csv"
-ratings_file = "ratings.csv"
 
 #Leemos el archivo
 movies = pd.read_csv(movies_file, sep=';', encoding='UTF-8')
@@ -36,19 +34,17 @@ cosine_sim_df.sample(5, axis=1).round(2)
 
 def genre_recommendations(i, k=20):
     """
-    Recommends movies based on a similarity dataframe
-
-    Parameters
+    Recomendar películas en base a las similitudes del dataframe 
+    Parámetros
     ----------
     i : str
-        Movie (index of the similarity dataframe)
+        Película (index of the similarity dataframe)
     M : pd.DataFrame
-        Similarity dataframe, symmetric, with movies as indices and columns
+        Similitud en el dataframe, simetría dentro del dataframe con las películas como filas y columnas 
     items : pd.DataFrame
-        Contains both the title and some other features used to define similarity
+        Contiene el título y algunas otras características usadas para definir la similitud.
     k : int
-        Amount of recommendations to return
-
+        Número de recomendaciones a retornar.
     """
     M= cosine_sim_df
     items= movies[['Id_Pelicula','Titulo_original','Fecha_estreno','Descripcion','Cartel_path','Genero_Pelicula']]
