@@ -24,6 +24,8 @@ Funciona para textos, sin embargo, posee propiedades que son útiles para este p
 
 El cálculo del IDF considera qué términos se repiten frecuentemente en los textos, como artículos y conjunciones (el, la, lo, y, pero, que, etc.), y no tienen relevancia para los documentos. Cuando el factor IDF se incorpora dentro de la fórmula (que será mostrada más adelante), el cálculo disminuye el peso de los términos que ocurren con mucha frecuencia en el conjunto de documentos y aumenta el peso de los términos que aparecen más raramente.
 
+![Representación de ejemplo](IARECOMMEND/../images/ejemploIDF.png)
+
 La expresión que explica lo anterior, es la que se muestra a continuación:
 
 ![Expresión TDF-IDF](IARECOMMEND/../images/IDFormula.png)
