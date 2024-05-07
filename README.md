@@ -18,7 +18,7 @@ Se utilizó Flask para definir una API sencilla que recibiera una solicitud de l
 
 El código está diseñado para recomendar películas basadas en la similitud de género entre películas y lo hace de la siguiente manera:
 
--Vector tf-idf:
+### Vector tf-idf:
 
 Funciona para textos, sin embargo, posee propiedades que son útiles para este proyecto, en orden de obtener un vector que represente la data que se necesita.
 
@@ -49,7 +49,7 @@ Siendo:
 
  El logaritmo suaviza el resultado de la división, es decir, mientras el número de palabras se menor en un documento (dfi, que representa el numero de veces en el que un género de película aparece en la base de datos), su peso será mayor.
 
-
+### Coseno de Similitud:
 
 ## Instalación
 

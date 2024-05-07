@@ -23,10 +23,10 @@ tf = TfidfVectorizer(analyzer=lambda s: (c for i in range(1,4)
 tfidf_matrix = tf.fit_transform(movies['Genero_Pelicula'])
 tfidf_matrix.shape
 
-#Which will result in the following tf-idf vectors (note that only a subset of the columns and rows is sampled):
+#Esta es la matriz TD-IDF, el subconjunto buscado.
 pd.DataFrame(tfidf_matrix.todense(), columns=tf.get_feature_names_out(), index=movies.Titulo_original).sample(5, axis=1).sample(10, axis=0)
 
-##Se calcula la similitud del coseno
+##Se calcula la similitud del coseno usando la matriz TD-IDF
 cosine_sim = cosine_similarity(tfidf_matrix)
 
 ## Se crea dataframe de similitud
