@@ -32,23 +32,20 @@ La expresión que explica lo anterior, es la que se muestra a continuación:
 
 Siendo: 
 
-tf: Número total de ocurrencias de i en j.
-df: Número total de documentos (discursos) que contienen i.
-N: Número total de documentos (discursos).
-tf,j: Frecuencia de la palabra clave i en el documento j.
-log: Logaritmo neperiano.
+```bash
+ 1) i: Índice de una palabra clave en particular. Por ejemplo, si hay 10 palabras clave en un documento, i puede variar de 1 a 10.
 
+ 2) j: Índice de un documento en particular. Por ejemplo, si hay 100 documentos en un conjunto, j puede variar de 1 a 100.
+
+ 3) tf: Número total de ocurrencias de i en j.
+
+ 4) df: Número total de documentos que contienen i.
+
+ 5) N: Número total de documentos.
+
+ 6) tf,j: Frecuencia de la palabra clave i en el documento j.
 
 ## Instalación
-
-
-# Opcional:
-
-
-# Diseño y Arquitectura:
-
-# Referencias Bibliográficas y Librerías:
-
 
 
 ## Liberías y dependencias utilizadas:
