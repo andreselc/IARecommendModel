@@ -13,7 +13,6 @@ movies_file = "Data_pelicula.csv"
 movies = pd.read_csv(movies_file, sep=';', encoding='UTF-8')
 
 ##Se construye la matriz TD-IDF
-
 """
 Se quiere hallar el conjunto de combinaciones de géneros
 mayor a cuatro. En términos matemáticos, se quiero hallar el subconjunto.
@@ -30,6 +29,11 @@ pd.DataFrame(tfidf_matrix.todense(), columns=tf.get_feature_names_out(), index=m
 cosine_sim = cosine_similarity(tfidf_matrix)
 
 ## Se crea dataframe de similitud
+"""
+Esto al final genera una matriz cuadrada, con la intención de comprobar
+la similitud entre las películas. Si la similitud es 1, significa que las películas tienen el mismo género.
+Mientras el valor del ángulo sea más cercano a 1, las películas tendrán mayor similtud.
+    """
 cosine_sim_df = pd.DataFrame(cosine_sim, index=movies['Titulo_original'], columns=movies['Titulo_original'])
 print('Shape:', cosine_sim_df.shape)
 cosine_sim_df.sample(5, axis=1).round(2)
@@ -49,11 +53,11 @@ def genre_recommendations(i, k=20):
     k : int
         Número de recomendaciones a retornar.
     """
-    M= cosine_sim_df
+    M= cosine_sim_df ## Se define la matriz de similitud
     items= movies[['Id_Pelicula','Titulo_original','Fecha_estreno','Descripcion','Cartel_path','Genero_Pelicula']]
     ix = M.loc[:,i].to_numpy().argpartition(range(-1,-k,-1))
-    closest = M.columns[ix[-1:-(k+2):-1]]
-    closest = pd.DataFrame(closest)  
-    closest = closest.sample(k)  
-    closest = closest[closest != i]
-    return pd.DataFrame(closest).merge(items).head(5)
+    closest = M.columns[ix[-1:-(k+2):-1]] ## Se seleccionan las k películas más cercanas
+    closest = pd.DataFrame(closest)  ## Se convierte a DataFrame
+    closest = closest.sample(k)  ## Se seleccionan k películas en orden aleatorio.
+    closest = closest[closest != i] ## Se excluye la película de referencia
+    return pd.DataFrame(closest).merge(items).head(5) ## Se retorna el resultado de las primeras 5 películas de la lista.

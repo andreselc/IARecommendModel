@@ -1,4 +1,4 @@
-# TF-IDF
+# TF-IDF & SIMILITUD ENTRE VECTORES USANDO COSENOS
 
 Este es el repositorio que contiene el modelo de machine learning para recomendar películas según la interacción que se tenga con la aplicación (likes a las películas). El algoritmo que se usa para recomendar películas es el TF-IDF.
 
@@ -49,7 +49,15 @@ Siendo:
 
  El logaritmo suaviza el resultado de la división, es decir, mientras el número de palabras se menor en un documento (dfi, que representa el numero de veces en el que un género de película aparece en la base de datos), su peso será mayor.
 
-### Coseno de Similitud:
+### Similitud:
+
+La similitud, en matemática, se puede definir como el coseno del ángulo entre dos vectores siendo comparados.
+
+![Expresión](IARECOMMEND/../images/coseno_formula.png)
+
+Esta fórmula también puede ser vista como el producto escalar entre dos vecotres, siendo "alpha" el angúlo del coseno entre "A" y "B". Si la similitud es 1, significa que las películas tienen el mismo género.
+
+Mientras el valor del ángulo sea más cercano a 1, las películas tendrán mayor similtud.
 
 ## Instalación
 
