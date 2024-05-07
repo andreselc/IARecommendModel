@@ -6,32 +6,35 @@ import seaborn as sns
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Definimos nuestros archivo
-
+# Definimos nuestro archivo
 movies_file = "Data_pelicula.csv"
 
 #Leemos el archivo
 movies = pd.read_csv(movies_file, sep=';', encoding='UTF-8')
 
-s = "Action Drama Adventure"
-tf_wrong = TfidfVectorizer(analyzer='word', ngram_range=(1,2))
-tf_wrong.fit([s])
-tf_wrong.get_feature_names_out()
-[c for i in range(1,2) for c in combinations(s.split(), r=i)]
+##Se construye la matriz TD-IDF
 
+"""
+Se quiere hallar el conjunto de combinaciones de géneros
+mayor a cuatro. En términos matemáticos, se quiero hallar el subconjunto.
+    """
 tf = TfidfVectorizer(analyzer=lambda s: (c for i in range(1,4)
                                              for c in combinations(s.split(', '), r=i)))
 tfidf_matrix = tf.fit_transform(movies['Genero_Pelicula'])
 tfidf_matrix.shape
 
+#Which will result in the following tf-idf vectors (note that only a subset of the columns and rows is sampled):
 pd.DataFrame(tfidf_matrix.todense(), columns=tf.get_feature_names_out(), index=movies.Titulo_original).sample(5, axis=1).sample(10, axis=0)
 
+##Se calcula la similitud del coseno
 cosine_sim = cosine_similarity(tfidf_matrix)
 
+## Se crea dataframe de similitud
 cosine_sim_df = pd.DataFrame(cosine_sim, index=movies['Titulo_original'], columns=movies['Titulo_original'])
 print('Shape:', cosine_sim_df.shape)
 cosine_sim_df.sample(5, axis=1).round(2)
 
+#Función de recomendación por género
 def genre_recommendations(i, k=20):
     """
     Recomendar películas en base a las similitudes del dataframe 

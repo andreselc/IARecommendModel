@@ -47,6 +47,10 @@ Siendo:
 
  ```
 
+ El logaritmo suaviza el resultado de la división, es decir, mientras el número de palabras se menor en un documento (dfi, que representa el numero de veces en el que un género de película aparece en la base de datos), su peso será mayor.
+
+
+
 ## Instalación
 
 
