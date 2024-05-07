@@ -14,6 +14,18 @@ Como ya se sabe, no solo se usa en motores de búsquedas de internet, también s
 
 ## ¿Cómo funciona el proyecto?
 
+Se utilizó Flask para definir una API sencilla que recibiera una solicitud de la API definida en .NET, cuando el endpoint que recomienda películas se ejecute. 
+
+El código está diseñado para recomendar películas basadas en la similitud de género entre películas y lo hace de la siguiente manera:
+
+-Vector tf-idf:
+
+Funciona para textos, sin embargo, posee propiedades que son útiles para este proyecto, en orden de obtener un vector que represente la data que se necesita.
+
+El cálculo del IDF considera qué términos se repiten frecuentemente en los textos, como artículos y conjunciones (el, la, lo, y, pero, que, etc.), y no tienen relevancia para los documentos. Cuando el factor IDF se incorpora dentro de la fórmula (que será mostrada más adelante), el cálculo disminuye el peso de los términos que ocurren con mucha frecuencia en el conjunto de documentos y aumenta el peso de los términos que aparecen más raramente.
+
+![Esquema de Ejemplo)](IARECOMMEND/images/ejemploIDF.png)
+
 
 ## Instalación
 
