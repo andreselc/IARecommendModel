@@ -26,7 +26,7 @@ El cálculo del IDF considera qué términos se repiten frecuentemente en los te
 
 La expresión que explica lo anterior, es la que se muestra a continuación:
 
-![Expresión TDF-IDF](IARECOMMEND/images/IDFormula.png)
+![Expresión TDF-IDF](IARECOMMEND/../images/IDFormula.png)
 
 Siendo: 
 
