@@ -90,6 +90,7 @@ El resto, son la instalación de demás dependencias, como pandas, itertools, sk
 
 ![Salida](IARECOMMEND/../images/archivoTxt.jpg)
 
+[Enlace al repositorio de la API](https://github.com/andreselc/Backend_RecomendAI)
 
     
 
