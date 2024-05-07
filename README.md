@@ -1,4 +1,4 @@
-# TF-IDF & SIMILITUD ENTRE VECTORES USANDO COSENOS
+# TF-IDF & Similitud entre vectores usando cosenos
 
 Este es el repositorio que contiene el modelo de machine learning para recomendar películas según la interacción que se tenga con la aplicación (likes a las películas). El algoritmo que se usa para recomendar películas es el TF-IDF.
 
@@ -61,8 +61,23 @@ Mientras el valor del ángulo sea más cercano a 1, las películas tendrán mayo
 
 ## Instalación
 
+En Visual Studio Code, se hizo la instalación de las siguientes dependecias:
 
-## Liberías y dependencias utilizadas:
+1- Venv: Entorno virtual para aislar determinadas dependencias, de modo el interpretador pueda reconocer pandas.
+
+Para instalarlo y ejecutarlo:
+
+```bash
+
+1) > pip install virtualenv
+
+2) > venv mi_entorno_virtual
+
+2) > venv/scripts/activate 
+
+3) > python mi_script.py
+ ```
+
 
 
 
