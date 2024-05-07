@@ -14,6 +14,8 @@ Como ya se sabe, no solo se usa en motores de búsquedas de internet, también s
 
 ## ¿Cómo funciona el proyecto?
 
+-Tipo de sistema de recomendación: BASADO EN CONTENIDO (género de película).
+
 Se utilizó Flask para definir una API sencilla que recibiera una solicitud de la API definida en .NET, cuando el endpoint que recomienda películas se ejecute. 
 
 El código está diseñado para recomendar películas basadas en la similitud de género entre películas y lo hace de la siguiente manera:
@@ -73,12 +75,20 @@ Para instalarlo y ejecutarlo:
 
 2) > venv mi_entorno_virtual
 
-2) > venv/scripts/activate 
+3) > venv/scripts/activate 
 
-3) > python mi_script.py
+4) > python mi_script.py
  ```
 
+El resto, son la instalación de demás dependencias, como pandas, itertools, sklearn.feature_extraction.text y sklearn.metrics.pairwise y flask (para la API); usando "pip install".
 
+## Resultado Final de la API (desde Swagger al ejecutar API en .NET):
+
+![Endpoint de Recomendación](IARECOMMEND/../images/endpoint.png)
+
+![Ejecución del Endpoint](IARECOMMEND/../images/salida.png)
+
+![Salida](IARECOMMEND/../images/archivoTxt.jpg)
 
 
     

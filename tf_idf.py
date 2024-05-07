@@ -1,8 +1,5 @@
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 from itertools import combinations
-import seaborn as sns
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
